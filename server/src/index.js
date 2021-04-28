@@ -10,6 +10,8 @@ const middlewares = require("./middlewares");
 const logs = require("./api/logs");
 const app = express();
 
+app.enable("trust proxy"); // needed for rate limiting by Client IP
+
 app.use(morgan("common"));
 app.use(helmet());
 app.use(

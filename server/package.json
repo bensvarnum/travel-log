@@ -15,9 +15,11 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-rate-limit": "^5.2.6",
     "helmet": "^4.5.0",
     "mongoose": "^5.12.5",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "rate-limit-mongo": "^2.3.1"
   },
   "devDependencies": {
     "eslint": "^7.25.0",
