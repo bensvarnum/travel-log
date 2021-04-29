@@ -1,5 +1,5 @@
 {
   "scripts": {
-    "start": "npm install && node server/src/index.js"
+    "start": "cd server && npm install && node src/index.js"
   }
 }
