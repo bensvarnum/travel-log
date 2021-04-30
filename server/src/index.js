@@ -4,6 +4,13 @@ const helmet = require("helmet");
 const cors = require("cors");
 const mongoose = require("mongoose");
 
+const corsOptions = {
+  origin: "*",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+};
+
 require("dotenv").config();
 
 const middlewares = require("./middlewares");
@@ -14,7 +21,7 @@ app.enable("trust proxy"); // needed for rate limiting by Client IP
 
 app.use(morgan("common"));
 app.use(helmet());
-app.use(cors());
+// app.use(cors());
 
 app.use(express.json());
 
@@ -23,7 +30,7 @@ app.get("/", (req, res) => {
     msg: "Welcome to the Jungle!",
   });
 });
-app.use("/api/logs", logs);
+app.use("/api/logs", cors(corsOptions), logs);
 
 app.use(middlewares.notFound);
 app.use(middlewares.errorHandler);
